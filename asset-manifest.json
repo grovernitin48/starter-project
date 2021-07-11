@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/grovernitin48/starter-project/static/css/main.52824571.chunk.css",
+    "main.js": "/grovernitin48/starter-project/static/js/main.5c7d8aac.chunk.js",
+    "main.js.map": "/grovernitin48/starter-project/static/js/main.5c7d8aac.chunk.js.map",
+    "runtime-main.js": "/grovernitin48/starter-project/static/js/runtime-main.3edfe539.js",
+    "runtime-main.js.map": "/grovernitin48/starter-project/static/js/runtime-main.3edfe539.js.map",
+    "static/js/2.8a943291.chunk.js": "/grovernitin48/starter-project/static/js/2.8a943291.chunk.js",
+    "static/js/2.8a943291.chunk.js.map": "/grovernitin48/starter-project/static/js/2.8a943291.chunk.js.map",
+    "static/js/3.ea4d218f.chunk.js": "/grovernitin48/starter-project/static/js/3.ea4d218f.chunk.js",
+    "static/js/3.ea4d218f.chunk.js.map": "/grovernitin48/starter-project/static/js/3.ea4d218f.chunk.js.map",
+    "index.html": "/grovernitin48/starter-project/index.html",
+    "static/css/main.52824571.chunk.css.map": "/grovernitin48/starter-project/static/css/main.52824571.chunk.css.map",
+    "static/js/2.8a943291.chunk.js.LICENSE.txt": "/grovernitin48/starter-project/static/js/2.8a943291.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3edfe539.js",
+    "static/js/2.8a943291.chunk.js",
+    "static/css/main.52824571.chunk.css",
+    "static/js/main.5c7d8aac.chunk.js"
+  ]
+}
