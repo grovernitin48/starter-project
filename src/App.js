@@ -1,25 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, createContext } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { useLogin } from './routes/Login/services';
+
+import Login from './routes/Login';
+import Dishes from './routes/Dishes';
+import './App.css'
+
+const AuthContext = createContext({});
+
+function ProvideAuth({ children }) {
+    const auth = useLogin();
+    return (
+        <AuthContext.Provider value={{ ...auth }}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
 
-export default App;
+export default function App() {
+    return (
+        <Router>
+            <ProvideAuth>
+                    <div>
+                        <Switch>
+                            <Redirect exact from="/" to="login" />
+                            <Route path="/login">
+                                <Login />
+                            </Route>
+                            <PrivateRoute path="/dishes">
+                                <Dishes />
+                            </PrivateRoute>
+                        </Switch>
+                    </div>
+            </ProvideAuth>
+        </Router>
+    )
+}
+
+function PrivateRoute({ children, ...rest }) {
+    const { isValid } = useAuth();
+    return (
+        <Route
+            {...rest}
+            render={({ location }) =>
+                isValid ? (
+                    children
+                ) : (
+                    <Redirect
+                        to={{
+                            pathname: "/login",
+                            state: { from: location }
+                        }}
+                    />
+                )
+            }
+        />
+    );
+}
+
+export function useAuth() {
+    return useContext(AuthContext);
+}
